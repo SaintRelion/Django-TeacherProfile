@@ -13,3 +13,22 @@ register_resource(
         "archive": True,
     },
 )
+
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
+
+register_resource(
+    name="inspect_personalinformation",  # new API endpoint
+    model=PersonalInformation,
+    operations={
+        "list": "__all__",
+        "retrieve": "__all__",
+        "create": "__all__",
+        "update": True,
+    },
+    permissions={
+        "list": [IsAdminUser],
+        "retrieve": [IsAdminUser],
+        "create": [IsAdminUser],
+        "update": [IsAdminUser],
+    },
+)

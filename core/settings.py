@@ -6,6 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 from sr_libs.authentication.settings import *
 
+CORS_ALLOW_HEADERS = ["*"]
 AUTHENTICATION_MIDDLEWARE = MIDDLEWARE
 
 from dotenv import load_dotenv
@@ -19,7 +20,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 AUTH_USER_MODEL = "accounts.User"
 
