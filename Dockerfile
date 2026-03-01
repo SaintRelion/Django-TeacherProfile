@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
     git \
+    pkg-config \
+    default-libmysqlclient-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /code
