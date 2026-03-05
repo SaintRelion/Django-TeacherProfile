@@ -1,5 +1,8 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,9 +12,10 @@ from sr_libs.authentication.settings import *
 CORS_ALLOW_HEADERS = ["*"]
 AUTHENTICATION_MIDDLEWARE = MIDDLEWARE
 
-from dotenv import load_dotenv
+from sr_libs.delivery_channels.settings import *
 
-load_dotenv()
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -23,7 +27,6 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 AUTH_USER_MODEL = "accounts.User"
-
 # Application definition
 
 INSTALLED_APPS = [

@@ -3,7 +3,9 @@ asgiref==3.11.1
 billiard==4.2.4
 cbor2==5.8.0
 celery==5.6.2
+certifi==2026.2.25
 cffi==2.0.0
+charset-normalizer==3.4.4
 click==8.3.1
 click-didyoumean==0.3.1
 click-plugins==1.1.1.2
@@ -12,17 +14,23 @@ colorama==0.4.6
 cryptography==46.0.5
 Django==6.0.2
 django-cors-headers==4.9.0
+django-eventstream==5.3.3
+django-grip==3.5.2
 django-otp==1.7.0
-django-saintrelion-libs @ git+https://github.com/SaintRelion/Django-Fastly.git@c287e4128b043b3f87be718ce6c704f0ebece553
+django-saintrelion-libs @ git+https://github.com/SaintRelion/Django-Fastly.git@3816cb7c61310fdc1ff365fdd3758ca3aedb917f
 djangorestframework==3.16.1
 djangorestframework_simplejwt==5.5.1
 gevent==25.9.1
 greenlet==3.3.2
+gripcontrol==4.2.1
 h11==0.16.0
+idna==3.11
 kombu==5.6.2
+MarkupSafe==3.0.3
 mysqlclient==2.2.8
 packaging==26.0
 prompt_toolkit==3.0.52
+pubcontrol==3.5.0
 pyasn1==0.6.2
 pycparser==3.0
 PyJWT==2.11.0
@@ -30,14 +38,17 @@ pyOpenSSL==25.3.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.1
 redis==7.2.1
+requests==2.32.5
 six==1.17.0
 sqlparse==0.5.5
 typing_extensions==4.15.0
 tzdata==2025.3
 tzlocal==5.3.1
+urllib3==2.6.3
 uvicorn==0.41.0
 vine==5.1.0
 wcwidth==0.6.0
 webauthn==2.7.1
+Werkzeug==3.1.6
 zope.event==6.1
 zope.interface==8.2

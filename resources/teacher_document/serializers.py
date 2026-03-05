@@ -4,6 +4,7 @@ from ..teacher_document.models import TeacherDocument
 register_resource(
     name="teacherdocument",
     model=TeacherDocument,
+    query_viewset=lambda: TeacherDocument.objects.all(),
     operations={
         "list": True,
         "retrieve": "__all__",
