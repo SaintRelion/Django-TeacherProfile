@@ -15,7 +15,7 @@ register_resource(
             "date_joined",
         ],
         "update": "__all__",
-        "delete": False,
+        "delete": True,
         "archive": True,
     },
 )
