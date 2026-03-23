@@ -1,7 +1,8 @@
 from django.db import models
+from sr_libs.dal.mixins import ArchiveMixin
 
 
-class PersonalInformation(models.Model):
+class PersonalInformation(ArchiveMixin):
     user = models.ForeignKey("accounts.User", on_delete=models.CASCADE)
     employee_id = models.CharField(max_length=50)
     photo_base64 = models.TextField(blank=True, null=True)

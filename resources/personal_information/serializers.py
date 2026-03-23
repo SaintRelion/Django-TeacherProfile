@@ -9,7 +9,7 @@ register_resource(
         "retrieve": "__all__",
         "create": "__all__",
         "update": "__all__",
-        "delete": False,
+        "delete": True,
         "archive": True,
     },
 )
