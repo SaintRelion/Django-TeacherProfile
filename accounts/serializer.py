@@ -41,12 +41,7 @@ class MeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = fields = [
-            "id",
-            "username",
-            "email",
-            "roles",
-        ]
+        fields = ["id", "username", "email", "roles", "pds"]
 
     def get_roles(self, obj):
         return list(obj.groups.values_list("name", flat=True))
