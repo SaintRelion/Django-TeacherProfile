@@ -5,7 +5,15 @@ register_resource(
     name="user",
     model=User,
     operations={
-        "list": ["id", "first_name", "last_name", "email", "username", "date_joined"],
+        "list": [
+            "id",
+            "first_name",
+            "last_name",
+            "email",
+            "username",
+            "date_joined",
+            "pds",
+        ],
         "retrieve": [
             "id",
             "first_name",
@@ -13,6 +21,7 @@ register_resource(
             "email",
             "username",
             "date_joined",
+            "pds",
         ],
         "update": "__all__",
         "delete": True,
