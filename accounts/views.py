@@ -1,7 +1,7 @@
 from datetime import timedelta
 
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import get_user_model
@@ -9,6 +9,44 @@ from rest_framework_simplejwt.tokens import AccessToken
 from sr_libs.delivery_channels.services.email import send_email
 
 User = get_user_model()
+
+
+class ChangePasswordView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        current_password = request.data.get("current_password")
+        new_password = request.data.get("new_password")
+        confirm_password = request.data.get("confirm_password")
+
+        # 1. Validation
+        if not all([current_password, new_password, confirm_password]):
+            return Response(
+                {"detail": "All password fields are required."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if new_password != confirm_password:
+            return Response(
+                {"detail": "New passwords do not match."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # 2. Verify Current Password
+        user = request.user
+        if not user.check_password(current_password):
+            return Response(
+                {"detail": "Current password is incorrect."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # 3. Update Password
+        user.set_password(new_password)
+        user.save()
+
+        return Response(
+            {"detail": "Password changed successfully."}, status=status.HTTP_200_OK
+        )
 
 
 class SendResetLinkView(APIView):
