@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from accounts.views import ResetPasswordView, SendResetLinkView
+from accounts.views import ChangePasswordView, ResetPasswordView, SendResetLinkView
 from resources.teacher_document.views import TeacherDocumentFileView
 
 urlpatterns = [
@@ -12,6 +12,11 @@ urlpatterns = [
         "api/teacher-document-file/<int:pk>/",
         TeacherDocumentFileView.as_view(),
         name="teacher-document-file",
+    ),
+    path(
+        "api/accounts/change-password/",
+        ChangePasswordView.as_view(),
+        name="change-password",
     ),
     path(
         "api/accounts/send-reset-link/",
