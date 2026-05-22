@@ -1,8 +1,10 @@
 from django.db import models
 from sr_libs.dal.mixins import ArchiveMixin
 
+from audit.mixins import AuditMixin
 
-class PersonalInformation(ArchiveMixin):
+
+class PersonalInformation(ArchiveMixin, AuditMixin):
     user = models.ForeignKey("accounts.User", on_delete=models.CASCADE)
     employee_id = models.CharField(max_length=50)
     photo_base64 = models.TextField(blank=True, null=True)
@@ -21,6 +23,8 @@ class PersonalInformation(ArchiveMixin):
     date_hired = models.DateField()
     salary_grade = models.CharField(max_length=20)
     tin = models.CharField(max_length=50)
+
+    ignore_fields = ["photo_base64"]
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} ({self.employee_id})"

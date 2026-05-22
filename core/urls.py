@@ -8,6 +8,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/auth/", include("sr_libs.authentication.urls")),
     path("api/", include("sr_libs.dal.urls")),
+    path("api/audit/", include("audit.urls")),
     path(
         "api/teacher-document-file/<int:pk>/",
         TeacherDocumentFileView.as_view(),

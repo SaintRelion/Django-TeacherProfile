@@ -2,7 +2,10 @@ from django.db import models
 
 from sr_libs.dal.mixins import ArchiveMixin
 
-class DocumentFolder(ArchiveMixin):
+from audit.mixins import AuditMixin
+
+
+class DocumentFolder(ArchiveMixin, AuditMixin):
     name = models.CharField(max_length=255)
     user = models.ForeignKey("accounts.User", on_delete=models.CASCADE)
     has_expiry = models.BooleanField(default=False)
