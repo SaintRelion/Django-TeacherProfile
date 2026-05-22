@@ -18,7 +18,7 @@ django-eventstream==5.3.3
 django-filter==25.2
 django-grip==3.5.2
 django-otp==1.7.0
-django-saintrelion-libs @ git+https://github.com/SaintRelion/Django-SaintRelion-Libs-Legacy.git@3816cb7c61310fdc1ff365fdd3758ca3aedb917f
+django-saintrelion-libs @ git+https://oauth2:${SR_LEGACY_TOKEN}@github.com/SaintRelion/Django-SaintRelion-Libs-Legacy.git@3816cb7c61310fdc1ff365fdd3758ca3aedb917f
 djangorestframework==3.16.1
 djangorestframework_simplejwt==5.5.1
 gevent==25.9.1
