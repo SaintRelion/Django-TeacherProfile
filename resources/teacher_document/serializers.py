@@ -19,6 +19,7 @@ register_resource(
             "updated_at",
             "folder_id",
             "user_id",
+            "restored_at",
         ],
         "retrieve": [
             "id",
@@ -32,6 +33,7 @@ register_resource(
             "created_at",
             "updated_at",
             "folder_id",
+            "restored_at",
         ],
         "create": "__all__",
         "update": "__all__",

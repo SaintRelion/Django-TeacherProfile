@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
+from audit.utils import register
+
 
 class ResourcesConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
@@ -13,3 +15,13 @@ class ResourcesConfig(AppConfig):
         import resources.teacher_document.serializers
         import resources.teacher_performance.serializers
         import resources.user.serializers
+
+        from resources.document_folder.models import DocumentFolder
+        from resources.personal_information.models import PersonalInformation
+        from resources.teacher_document.models import TeacherDocument
+
+        register(
+            DocumentFolder,
+            PersonalInformation,
+            TeacherDocument,
+        )

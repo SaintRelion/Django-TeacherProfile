@@ -1,10 +1,12 @@
 from django.db import models
 from sr_libs.dal.mixins import ArchiveMixin
 
+from audit.mixins import AuditMixin
+
 from ..document_folder.models import DocumentFolder
 
 
-class TeacherDocument(ArchiveMixin):
+class TeacherDocument(ArchiveMixin, AuditMixin):
     user = models.ForeignKey("accounts.User", on_delete=models.CASCADE)
     folder = models.ForeignKey(DocumentFolder, on_delete=models.CASCADE)
     document_title = models.CharField(max_length=255)
@@ -15,6 +17,7 @@ class TeacherDocument(ArchiveMixin):
     file_base64 = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    restored_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.document_title} ({self.user})"
